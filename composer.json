@@ -1,18 +1,18 @@
 {
     "name": "oliverklee/crowdfunding",
-    "description": "TYPO3 extension for conducting crowdfunding campaigns.",
+    "description": "TYPO3 extension for conducting crowdfunding campaigns",
     "type": "typo3-cms-extension",
     "keywords": [
-        "typo3",
         "crowdfunding"
     ],
     "homepage": "https://www.oliverklee.de",
-    "license": "GPL-3.0+",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Oliver Klee",
-            "role": "Developer",
-            "homepage": "https://www.oliverklee.de"
+            "email": "typo3-coding@oliverklee.de",
+            "homepage": "https://www.oliverklee.de",
+            "role": "developer"
         }
     ],
     "support": {
@@ -22,6 +22,8 @@
     "require": {
         "php": "~7.0.0 || ~7.1.0 || ~7.2.0",
         "typo3/cms-core": "^8.7.0"
+    },
+    "require-dev": {
     },
     "replace": {
         "crowdfunding": "self.version",
@@ -36,5 +38,17 @@
         "psr-4": {
             "OliverKlee\\Crowdfunding\\Tests\\": "Tests/"
         }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://composer.typo3.org/"
+        }
+    ],
+    "config": {
+    },
+    "scripts": {
+    },
+    "extra": {
     }
 }
