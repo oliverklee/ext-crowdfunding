@@ -7,3 +7,6 @@
 [![License](https://poser.pugx.org/oliverklee/crowdfunding/license.svg)](https://packagist.org/packages/oliverklee/crowdfunding)
 
 TYPO3 extension for conducting crowdfunding campaigns.
+
+Most of the documentation is in ReST format
+[in the Documentation/ folder](Documentation/).
