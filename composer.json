@@ -21,9 +21,9 @@
     },
     "require": {
         "php": "~7.0.0 || ~7.1.0 || ~7.2.0",
-        "typo3/cms-core": "^8.7.0",
-        "typo3/cms-fluid": "^8.7.0",
-        "typo3/cms-frontend": "^8.7.0"
+        "typo3/cms-core": "^8.7.9",
+        "typo3/cms-fluid": "^8.7.9",
+        "typo3/cms-frontend": "^8.7.9"
     },
     "require-dev": {
         "helhum/typo3-composer-setup": "^0.5.1"
