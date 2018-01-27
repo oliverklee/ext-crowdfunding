@@ -1,0 +1,15 @@
+plugin.tx_crowdfunding {
+    view {
+        templateRootPath = {$plugin.tx_crowdfunding.view.templateRootPath}
+        partialRootPath = {$plugin.tx_crowdfunding.view.partialRootPath}
+        layoutRootPath = {$plugin.tx_crowdfunding.view.layoutRootPath}
+    }
+
+    persistence {
+        storagePid = {$plugin.tx_crowdfunding.persistence.storagePid}
+    }
+
+    settings {
+
+    }
+}
