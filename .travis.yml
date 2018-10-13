@@ -2,15 +2,10 @@ sudo: false
 
 language: php
 
-php:
-- 7.0
-- 7.1
-
 env:
-- TYPO3_VERSION="^8.7"
-
-matrix:
-  exclude:
+  global:
+  - DATABASE_USER=travis DATABASE_HOST=localhost DATABASE_PORT=3306 DATABASE_NAME=typo3 DATABASE_PASSWORD=''
+  - TYPO3_PATH_ROOT=$PWD/.Build/public
 
 cache:
   directories:
@@ -21,9 +16,13 @@ before_install:
 - phpenv config-rm xdebug.ini
 
 install:
-- composer require-typo3-version "$TYPO3_VERSION"
-- git checkout .
-- export TYPO3_PATH_ROOT=$PWD/.Build/public
+- >
+  composer require typo3/minimal:"$TYPO3" --prefer-stable --prefer-dist $DEPENDENCIES_PREFERENCE;
+  composer show;
+- >
+  echo;
+  echo "Restoring the composer.json";
+  git checkout .;
 
 script:
 - >
@@ -35,3 +34,44 @@ script:
   echo;
   echo "Linting all TypoScript files";
   composer ci:ts:lint;
+
+jobs:
+  include:
+  - stage: test
+    php: 7.2
+    env: TYPO3=^8.7
+  - stage: test
+    php: 7.1
+    env: TYPO3=^8.7
+  - stage: test
+    php: 7.0
+    env: TYPO3=^8.7
+  - stage: test
+    php: 7.2
+    env: TYPO3=^8.7 DEPENDENCIES_PREFERENCE="--prefer-lowest"
+  - stage: test
+    php: 7.1
+    env: TYPO3=^8.7 DEPENDENCIES_PREFERENCE="--prefer-lowest"
+  - stage: test
+    php: 7.0
+    env: TYPO3=^8.7 DEPENDENCIES_PREFERENCE="--prefer-lowest"
+  - stage: release to ter
+    if: tag IS present AND env(TYPO3_ORG_USERNAME) IS present AND env(TYPO3_ORG_PASSWORD) IS present
+    php: 7.0
+    before_install: skip
+    install: skip
+    before_script: skip
+    script:
+    - >
+      echo;
+      echo "Preparing upload of release ${TRAVIS_TAG} to TER";
+      echo;
+      echo;
+      composer global require helhum/ter-client;
+    - >
+      TAG_MESSAGE=`git tag -n10 -l $TRAVIS_TAG | sed 's/^[0-9.]*[ ]*//g'`;
+      echo;
+      echo "Uploading release ${TRAVIS_TAG} to TER";
+      echo;
+      echo;
+      $HOME/.composer/vendor/bin/ter-client upload crowdfunding . -u "$TYPO3_ORG_USERNAME" -p "$TYPO3_ORG_PASSWORD" -m "$TAG_MESSAGE";
