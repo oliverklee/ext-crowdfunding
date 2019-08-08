@@ -17,5 +17,6 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Removed
 
 ### Fixed
+- Drop an obsolete "replace" entry from composer.json (#15)
 - Explicitly require MySQL in the Travis CI configuration (#14)
 - Explicitly provide the extension name in the composer.json (#12)
