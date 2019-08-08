@@ -30,7 +30,6 @@
         "helmich/typo3-typoscript-lint": "^1.4.4"
     },
     "replace": {
-        "crowdfunding": "self.version",
         "typo3-ter/crowdfunding": "self.version"
     },
     "autoload": {
