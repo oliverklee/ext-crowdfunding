@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Drop the TYPO3 package repository from composer.json (#16)
 
 ### Fixed
 - Drop an obsolete "replace" entry from composer.json (#15)
