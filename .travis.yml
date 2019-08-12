@@ -35,6 +35,11 @@ script:
 
 - >
   echo;
+  echo "Running PHP_CodeSniffer";
+  composer ci:php:sniff;
+
+- >
+  echo;
   echo "Linting all TypoScript files";
   composer ci:ts:lint;
 
