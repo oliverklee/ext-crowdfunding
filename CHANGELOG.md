@@ -16,6 +16,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ### Deprecated
 
 ### Removed
+- Stop building with the lowest Composer dependencies (#18)
 - Drop the TYPO3 package repository from composer.json (#16)
 
 ### Fixed
