@@ -21,6 +21,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Drop the TYPO3 package repository from composer.json (#16)
 
 ### Fixed
+- Stop packaging development-only files for Packagist (#20)
 - Drop an obsolete "replace" entry from composer.json (#15)
 - Explicitly require MySQL in the Travis CI configuration (#14)
 - Explicitly provide the extension name in the composer.json (#12)
