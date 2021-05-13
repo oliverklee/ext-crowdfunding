@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Composer script for PHP linting
 
 ### Changed
+- Switch the default git branch from master to main (#19)
 - Change from GPL V3+ to GPL V2+ (#13)
 
 ### Deprecated
